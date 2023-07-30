@@ -9,7 +9,7 @@ class Model{
 
     protected $connection;
 
-    public function __construct__(){
+    public function __construct(){
         
         if(!isset($connection)){
 
@@ -30,6 +30,65 @@ class Model{
 
     }
 
+    public function __destruct(){
+
+        $this->closeConnection();
     
+    }
+
+    protected function query($query, $values = null){
+
+        try{
+
+            if($values == null){
+
+                return $this->connection->query($query);
+
+            }else{
+
+                $stmt = $this->connection->prepare($query);
+                $stmt->execute($values);
+                return $stmt;
+
+            }
+
+        }catch (PDOException $e){
+
+            echo 'there is some problem in connection : ' . $e->getMessage();
+
+        }
+
+    }
+
+    protected function execute($query, $values = null){
+
+        try{
+
+            if($values == null){
+
+                $this->connection->exec($query);
+
+            }else{
+
+                $stmt = $this->connection->prepare($query);
+                $stmt->execute($values);
+                return true;
+
+            }
+
+        }catch (PDOException $e) {
+            
+            echo 'there is some problem in connection : ' . $e->getMessage();
+            return false;
+
+        }
+
+    }
+
+    protected function closeConnection(){
+
+        $this->connection = null;
+
+    }
 
 }
