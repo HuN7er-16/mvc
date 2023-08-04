@@ -1,3 +1,4 @@
+<?php $this->include("admin.layouts.header") ?>
 
                 <section class="mb-2 d-flex justify-content-between align-items-center">
                     <h2 class="h4">Articles</h2>
@@ -39,3 +40,4 @@
                         </tbody>
                     </table>
                 </section>
+                <?php $this->include("admin.layouts.footer") ?>

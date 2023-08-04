@@ -1,4 +1,4 @@
-
+<?php $this->include("admin.layouts.header") ?>
                 <form>
                     <section class="form-group">
                         <label for="title">Title</label>
@@ -17,3 +17,4 @@
                     </section>
                     <button type="submit" class="btn btn-primary">Create</button>
                 </form>
+                <?php $this->include("admin.layouts.footer") ?>

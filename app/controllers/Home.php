@@ -6,14 +6,19 @@ class Home extends Controller{
 
     public function index(){
 
-        $productName = 'phone';
-        $this->view('app.index', compact('productName'));
+
 
     }
 
-    public function create(){
+    public function category($id){
 
-        $this->redirect('home');
+        
+
+    }
+
+    public function show($id){
+
+        
 
     }
 
