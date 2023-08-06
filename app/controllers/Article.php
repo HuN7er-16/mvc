@@ -43,7 +43,7 @@ class Article extends Controller{
         $categories = $category->all();
         $ob_article = new ArticleModel();
         $article = $ob_article->find($id);
-        return $this->view('admin.article.create', compact('categories', 'article'));
+        return $this->view('admin.article.edit', compact('categories', 'article'));
 
     }
 
